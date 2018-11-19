@@ -1,0 +1,8 @@
+---
+
+- name: Install some funny packages
+  apt:
+    pkg: ['espeak', 'fortune']
+
+- name: Time for some silliness
+  shell: espeak "Your laptop has been configured by Ansible"

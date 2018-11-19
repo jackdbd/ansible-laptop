@@ -1,0 +1,7 @@
+---
+
+- name: Javascript tasks
+  command: hostname
+
+- name: Install nvm (Node.js Version Manager)
+  shell: wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash

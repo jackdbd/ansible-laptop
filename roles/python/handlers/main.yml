@@ -1,0 +1,6 @@
+---
+
+- name: Remove Miniconda Installer
+  file:
+    state: absent
+    path: "./Miniconda3-latest-Linux-x86_64.sh"

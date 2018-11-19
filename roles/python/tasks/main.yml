@@ -1,0 +1,15 @@
+---
+
+- name: Download latest Miniconda for Linux 64 bit
+  shell: wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+- name: Install (or update) Miniconda for Linux 64 bit
+  shell: bash Miniconda3-latest-Linux-x86_64.sh -b -u
+  notify:
+    - Remove Miniconda Installer
+
+- name: Install (or update) pipenv
+  shell: pip install --user --upgrade pipenv
+
+- name: Upgrade pip
+  shell: pip install --upgrade pip

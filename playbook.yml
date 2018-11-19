@@ -1,0 +1,8 @@
+---
+- name: Ansible Playbook for my laptop configuration
+  hosts: laptop
+  roles:
+    - { role: common, become: true }
+    # - { role: javascript, become: true }
+    # - { role: python, become: true }
+    - { role: funny, become: true }

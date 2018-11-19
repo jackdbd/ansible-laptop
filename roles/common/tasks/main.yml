@@ -1,0 +1,36 @@
+---
+
+- name: Print out the hostname of target
+  command: hostname
+
+- name: Ensure that Aptitude repositories are up to date
+  apt: update_cache=yes
+
+- name: Install a list of packages to their latest version
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - git
+    - grep
+    - jq
+    - less
+    - mc
+    - redis-server
+    - silversearcher-ag
+    - tldr
+    - tree
+
+- name: Upgrade all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes

@@ -1,8 +1,18 @@
 ---
 - name: Ansible Playbook for my laptop configuration
   hosts: laptop
+  vars:
+    home_dir: "{{ lookup('env', 'HOME') }}"
   roles:
-    - { role: common, become: true }
-    # - { role: javascript, become: true }
-    # - { role: python, become: true }
-    - { role: funny, become: true }
+    # - { role: geerlingguy.java, become: yes }
+    # - { role: geerlingguy.docker, become: yes }
+    # - { role: api, become: yes }
+    # - { role: common, become: yes }
+    # - { role: communication, become: yes }
+    # - { role: databases, become: yes }
+    # - { role: development, become: yes }
+    # - { role: heroku, become: yes }
+    # - { role: funny, become: yes }
+    # - { role: graphics, become: yes }
+    - { role: nodejs, become: yes }
+    - { role: python, become: yes }

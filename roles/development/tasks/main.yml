@@ -1,0 +1,4 @@
+---
+
+- name: Install PyCharm Community
+  command: snap install pycharm-community --classic

@@ -1,0 +1,15 @@
+---
+
+- name: Install Redis server
+  apt:
+    name: redis-server
+    state: latest
+
+- name: Install pgAdmin and SQLite browser
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - pgadmin3
+    - sqlitebrowser

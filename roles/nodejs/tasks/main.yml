@@ -1,0 +1,15 @@
+---
+
+- name: download installation script for nvm (Node.js Version Manager)
+  get_url:
+    url: https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh
+    dest: ./install_nvm.sh
+
+- name: Install nvm
+  shell: bash ./install_nvm.sh
+  notify:
+    - Remove nvm installer
+
+# For this one should open a new shell
+# - name: Install latest Node.js LTS with nvm
+#   shell: nvm install --lts && nvm use --lts

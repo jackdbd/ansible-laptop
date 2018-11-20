@@ -1,0 +1,39 @@
+---
+
+- name: Install Blender
+  apt:
+    pkg: blender
+    state: present
+
+- name: Install Inkscape
+  apt:
+    pkg: inkscape
+    state: present
+
+- name: Add flatpak repo from PPA (required for gimp)
+  apt_repository:
+    repo: ppa:alexlarsson/flatpak
+    state: present
+
+- name: Install Flatpak
+  apt:
+    pkg: flatpak
+    state: present
+
+# - name: Install gimp (using Flatpak)
+#   shell: flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
+
+- name: Add unofficial repo from PPA (required for gimp)
+  apt_repository:
+    repo: ppa:otto-kesselgulasch/gimp
+    state: present
+
+- name: Install gimp
+  apt:
+    pkg: gimp
+    state: present
+
+- name: Install Pinta
+  apt:
+    pkg: pinta
+    state: present

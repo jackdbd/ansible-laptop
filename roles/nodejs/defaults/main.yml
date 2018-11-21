@@ -1,0 +1,5 @@
+---
+nvm:
+  user: "{{ ansible_user_id }}"
+  version: v0.33.11
+  node_version: v10.13.0

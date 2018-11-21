@@ -9,9 +9,3 @@
   shell: bash install_miniconda.sh -b -u
   notify:
     - Remove Miniconda installer
-
-# - name: Install (or update) pipenv
-#   shell: pip install --user --upgrade pipenv
-
-# - name: Upgrade pip
-#   shell: pip install --upgrade pip

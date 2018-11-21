@@ -4,15 +4,17 @@
   vars:
     home_dir: "{{ lookup('env', 'HOME') }}"
   roles:
-    # - { role: geerlingguy.java, become: yes }
-    # - { role: geerlingguy.docker, become: yes }
-    # - { role: api, become: yes }
-    # - { role: common, become: yes }
-    # - { role: communication, become: yes }
-    # - { role: databases, become: yes }
-    # - { role: development, become: yes }
-    # - { role: heroku, become: yes }
-    # - { role: funny, become: yes }
-    # - { role: graphics, become: yes }
+    - { role: geerlingguy.java, become: yes }
+    - { role: geerlingguy.docker, become: yes }
+    - { role: api, become: yes }
+    - { role: common, become: yes }
+    - { role: communication, become: yes }
+    - { role: databases, become: yes }
+    - { role: development, become: yes }
+    - { role: heroku, become: yes }
+    - { role: funny, become: yes }
+    - { role: graphics, become: yes }
     - { role: nodejs, become: yes }
     - { role: python, become: yes }
+  tasks:
+    - debug: msg="{{ lookup('env','HOME') }}"

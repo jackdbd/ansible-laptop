@@ -5,6 +5,9 @@
     name: redis-server
     state: latest
 
+- name: Install Redis Desktop Manager
+  command: snap install redis-desktop-manager --classic
+
 - name: Install pgAdmin and SQLite browser
   apt:
     name: "{{ packages }}"

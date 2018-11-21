@@ -8,7 +8,7 @@
 - name: Install Inkscape
   apt:
     pkg: inkscape
-    state: present
+    state: latest
 
 - name: Add flatpak repo from PPA (required for gimp)
   apt_repository:
@@ -20,6 +20,9 @@
     pkg: flatpak
     state: present
 
+# At the moment Gimp seems to have some issues with Flatpak. It IS installed,
+# but it must be launched with: flatpak run org.gimp.GIMP//stable
+# https://www.gimp.org/downloads/
 # - name: Install gimp (using Flatpak)
 #   shell: flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
 
@@ -36,4 +39,4 @@
 - name: Install Pinta
   apt:
     pkg: pinta
-    state: present
+    state: latest

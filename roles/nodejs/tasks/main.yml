@@ -1,15 +1,20 @@
 ---
 
-- name: download installation script for nvm (Node.js Version Manager)
-  get_url:
-    url: https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh
-    dest: ./install_nvm.sh
+- name: Check if nvm is installed (Node.js Version Manager)
+  stat: path="{{ home_dir }}/.nvm"
+  register: nvm_check
 
-- name: Install nvm
+- name: Download nvm ({{ nvm.version }})
+  get_url:
+    url: https://raw.githubusercontent.com/creationix/nvm/{{ nvm.version }}/install.sh
+    dest: ./install_nvm.sh
+  when: not nvm_check.stat.exists
+
+- name: Install nvm ({{ nvm.version }})
   shell: bash ./install_nvm.sh
+  when: not nvm_check.stat.exists
   notify:
     - Remove nvm installer
 
-# For this one should open a new shell
-# - name: Install latest Node.js LTS with nvm
-#   shell: nvm install --lts && nvm use --lts
+- name: Install Node.js {{ nvm.node_version }} with nvm {{ nvm.version }}
+  shell: . {{ lookup('env','NVM_DIR') }}/nvm.sh && nvm install {{ nvm.node_version }} && nvm use {{ nvm.node_version }}

@@ -1,5 +1,9 @@
 # Ansible Laptop Configuration
 
+Configuration for my Laptop (I use Xubuntu).
+
+![INSTALL ALL THE THINGS!](https://github.com/jackdbd/ansible-laptop/blob/master/install-all-the-things.jpg "INSTALL ALL THE THINGS!")
+
 The Ansible playbook `playbook.yml` relies on some roles which must be installed from [Ansible Galaxy](https://galaxy.ansible.com/home). These roles can be automatically downloaded and installed with:
 
 ```shell
@@ -18,7 +22,6 @@ You can also check that the playbook does not have any syntactic errors.
 ansible-playbook playbook.yml --syntax-check
 ```
 
-# TODO
+## TODO
 
-- use latest ansible to [install snap packages](https://stackoverflow.com/questions/47305658/install-snap-packages-with-ansible)
-
+- Upgrade to Ansible 2.8 which allows to [install snap packages](https://stackoverflow.com/questions/47305658/install-snap-packages-with-ansible) with the `snap` Ansible *module* (instead of using `snap` as a *command*).

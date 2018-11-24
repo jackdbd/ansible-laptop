@@ -1,0 +1,6 @@
+---
+
+- name: Install Java Open JDK 11
+  apt:
+    pkg: openjdk-11-jdk
+    state: latest

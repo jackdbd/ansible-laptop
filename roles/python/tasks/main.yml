@@ -1,11 +1,21 @@
 ---
 
+- name: Install pip
+  apt:
+    pkg: python-pip
+    state: latest
+
+- name: Install virtualenvwrapper
+  apt:
+    pkg: virtualenvwrapper
+    state: present
+
+- name: Add virtualenvwrapper to .bashrc
+  command: echo "source /usr/share/virtualenvwrapper/virtualenvwrapper.sh" >> ~/.bashrc
+
 - name: Download latest Miniconda for Linux 64 bit
   get_url:
     url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    dest: ./install_miniconda.sh
+    dest: ./Miniconda3-latest-Linux-x86_64.sh
 
-- name: Install (or update) Miniconda for Linux 64 bit
-  shell: bash install_miniconda.sh -b -u
-  notify:
-    - Remove Miniconda installer
+- debug: msg="Remember to install miniconda with bash Miniconda3-latest-Linux-x86_64.sh"

@@ -1,6 +1,0 @@
----
-
-- name: Remove nvm installer
-  file:
-    state: absent
-    path: "./install_nvm.sh"

@@ -1,4 +1,7 @@
 ---
 
+- name: Install Visual Studio Code
+  command: snap install vscode --classic
+
 - name: Install PyCharm Community
   command: snap install pycharm-community --classic

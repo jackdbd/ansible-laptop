@@ -1,6 +1,0 @@
----
-
-- name: Remove Miniconda installer
-  file:
-    state: absent
-    path: "./install_miniconda.sh"

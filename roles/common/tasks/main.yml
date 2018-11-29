@@ -13,6 +13,7 @@
   vars:
     packages:
     - chromium-browser
+    - curl
     - git
     - git-cola
     - gitk
@@ -34,8 +35,3 @@
 - name: Remove dependencies that are no longer required
   apt:
     autoremove: yes
-
-- name: Creare directory for repos
-  file:
-    path: "{{ home_dir }}/repos_TODO"
-    state: directory

@@ -11,7 +11,6 @@
     - { role: communication, become: yes }
     - { role: databases, become: yes }
     - { role: development, become: yes }
-    - { role: dotfiles, become: yes }
     - { role: heroku, become: yes }
     - { role: funny, become: yes }
     - { role: graphics, become: yes }

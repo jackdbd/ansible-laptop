@@ -9,12 +9,3 @@
     url: https://raw.githubusercontent.com/creationix/nvm/{{ nvm.version }}/install.sh
     dest: ./install_nvm.sh
   when: not nvm_check.stat.exists
-
-- name: Install nvm ({{ nvm.version }})
-  shell: bash ./install_nvm.sh
-  when: not nvm_check.stat.exists
-  notify:
-    - Remove nvm installer
-
-- name: Install Node.js {{ nvm.node_version }} with nvm {{ nvm.version }}
-  shell: . {{ lookup('env','NVM_DIR') }}/nvm.sh && nvm install {{ nvm.node_version }} && nvm use {{ nvm.node_version }}

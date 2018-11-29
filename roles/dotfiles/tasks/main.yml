@@ -1,4 +1,0 @@
----
-
-- name: Copy dotfiles from GitHub repo
-  git: repo=https://github.com/jackdbd/dotfiles.git dest="{{ ansible_env.HOME }}" update=yes accept_hostkey=yes

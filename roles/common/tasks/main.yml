@@ -22,6 +22,7 @@
     - grep
     - jq
     - less
+    - libssl-dev
     - mc
     - silversearcher-ag
     - tldr

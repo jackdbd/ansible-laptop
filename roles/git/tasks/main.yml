@@ -1,0 +1,11 @@
+---
+
+- name: Install git-related software
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - git
+    - git-cola
+    - gitk

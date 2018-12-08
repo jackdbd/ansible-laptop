@@ -1,5 +1,0 @@
----
-
-- name: Install some funny packages
-  apt:
-    pkg: ['espeak', 'fortune']

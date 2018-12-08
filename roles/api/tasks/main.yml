@@ -1,4 +1,0 @@
----
-
-- name: Install Postman
-  command: snap install postman

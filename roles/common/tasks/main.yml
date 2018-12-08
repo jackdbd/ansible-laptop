@@ -4,7 +4,8 @@
   command: hostname
 
 - name: Ensure that Aptitude repositories are up to date
-  apt: update_cache=yes
+  apt:
+    update_cache: yes
 
 - name: Install a list of packages to their latest version
   apt:
@@ -14,12 +15,11 @@
     packages:
     - chromium-browser
     - curl
-    - git
-    - git-cola
-    - gitk
+    - direnv
     - gparted
     - graphviz
     - grep
+    - htop
     - jq
     - less
     - libssl-dev
@@ -29,6 +29,20 @@
     - tree
     - vlc
 
+- name: Add flatpak repo from PPA (required for gimp)
+  apt_repository:
+    repo: ppa:alexlarsson/flatpak
+    state: present
+
+- name: Install Flatpak
+  apt:
+    pkg: flatpak
+    state: latest
+
+- name: Upgrade installed packages
+  apt:
+    upgrade: yes
+
 - name: Remove useless packages from the cache
   apt:
     autoclean: yes
@@ -36,3 +50,7 @@
 - name: Remove dependencies that are no longer required
   apt:
     autoremove: yes
+
+- debug: msg="TODO - Install bat (https://github.com/sharkdp/bat)"
+- debug: msg="TODO - Install fzf (https://github.com/junegunn/fzf)"
+- debug: msg="TODO - Add bash hook for direnv (https://direnv.net)"

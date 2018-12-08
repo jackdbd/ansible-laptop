@@ -5,3 +5,9 @@
 
 - name: Install PyCharm Community
   command: snap install pycharm-community --classic
+
+- name: Install Postman
+  command: snap install postman
+
+- name: Install Insomnia
+  command: snap install insomnia

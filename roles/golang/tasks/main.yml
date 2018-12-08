@@ -1,0 +1,7 @@
+---
+
+- name: Install Go
+  command: snap install go --classic
+
+- debug: msg="Manual step - Add /usr/local/go/bin to the PATH environment variable"
+- debug: msg="Manual step - Set the GOPATH environment variable (https://golang.org/doc/install#testing)"

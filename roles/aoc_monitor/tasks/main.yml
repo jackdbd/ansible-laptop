@@ -1,0 +1,8 @@
+---
+
+- name: Install Linux Generic LTS utopic
+  apt:
+    pkg: dkms
+    state: latest
+
+- debug: msg="Manual step - Now that DKMS is installed, go to DisplayLink's website and download USB driver for Ubuntu"

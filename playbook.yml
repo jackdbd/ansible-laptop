@@ -6,16 +6,16 @@
   roles:
     - { role: java, become: yes }
     - { role: geerlingguy.docker, become: yes }
-    - { role: api, become: yes }
     - { role: common, become: yes }
     - { role: communication, become: yes }
     - { role: databases, become: yes }
     - { role: development, become: yes }
     - { role: heroku, become: yes }
-    - { role: funny, become: yes }
     - { role: graphics, become: yes }
+    - { role: golang, become: yes }
     - { role: nodejs, become: yes }
     - { role: python, become: yes }
+    - { role: aoc_monitor, become: yes }
   tasks:
-    - debug: msg="{{ lookup('env','HOME') }}"
-    - debug: msg="{{ lookup('env','USER') }}"
+    - debug: msg="You are the user {{ lookup('env','USER') }}"
+    - debug: msg="Your home is {{ home_dir }}"

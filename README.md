@@ -4,6 +4,17 @@ Configuration for my Laptop (I use Xubuntu).
 
 ![INSTALL ALL THE THINGS!](https://github.com/jackdbd/ansible-laptop/blob/master/install-all-the-things.jpg "INSTALL ALL THE THINGS!")
 
+First of all, you will need Ansible 2.8+ (because it can manage [snaps](https://docs.ansible.com/ansible/latest/modules/snap_module.html))
+
+Here are the instructions from the [official Ansible documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu).
+
+```sh
+sudo apt update
+sudo apt install software-properties-common
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible --yes
+```
+
 The Ansible playbook `playbook.yml` relies on some roles which must be installed from [Ansible Galaxy](https://galaxy.ansible.com/home). These roles can be automatically downloaded and installed with:
 
 ```shell

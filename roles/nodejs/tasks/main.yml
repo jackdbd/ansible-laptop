@@ -1,5 +1,3 @@
----
-
 - name: Check if nvm is installed (Node.js Version Manager)
   stat: path="{{ home_dir }}/.nvm"
   register: nvm_check

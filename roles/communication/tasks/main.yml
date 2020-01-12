@@ -1,10 +1,14 @@
----
-
 - name: Install Skype
-  command: snap install skype --classic
+  snap:
+    name: skype
+    classic: yes
 
 - name: Install Slack
-  command: snap install slack --classic
+  snap:
+    name: slack
+    classic: yes
 
 - name: Install Telegram
-  command: snap install telegram-desktop --classic
+  snap:
+    name: telegram-desktop
+    classic: yes

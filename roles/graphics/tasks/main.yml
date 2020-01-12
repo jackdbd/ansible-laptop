@@ -1,13 +1,11 @@
----
-
-- name: Install Blender
+- name: Install Feh (Fast X11 image viewer)
   apt:
-    pkg: blender
-    state: present
+    pkg: feh
+    state: latest
 
-- name: Install Inkscape
+- name: Install Pinta (lightweight image drawing/editing)
   apt:
-    pkg: inkscape
+    pkg: pinta
     state: latest
 
 # At the moment Gimp seems to have some issues with Flatpak. It IS installed,
@@ -16,17 +14,52 @@
 # - name: Install gimp (using Flatpak)
 #   shell: flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
 
-- name: Add unofficial repo from PPA (required for gimp)
+- name: Add PPA required for Gimp
   apt_repository:
     repo: ppa:otto-kesselgulasch/gimp
     state: present
 
-- name: Install gimp
+- name: Install Gimp (raster graphics editor)
   apt:
     pkg: gimp
+    state: latest
+
+- name: Install Inkscape (vector graphics editor)
+  apt:
+    pkg: inkscape
+    state: latest
+
+- name: Add PPA required for Peek
+  apt_repository:
+    repo: ppa:peek-developers/stable
     state: present
 
-- name: Install Pinta
+- name: Install Peek (GIF recorder)
   apt:
-    pkg: pinta
+    pkg: peek
     state: latest
+
+- name: Add PPA required for Shutter
+  apt_repository:
+    repo: ppa:linuxuprising/shutter
+    state: present
+
+- name: Install Shutter (screenshot tool)
+  apt:
+    pkg: shutter
+    state: latest
+
+- name: Add PPA required for Simple Screen Recorder
+  apt_repository:
+    repo: ppa:maarten-baert/simplescreenrecorder
+    state: present
+
+- name: Install Simple Screen Recorder
+  apt:
+    pkg: simplescreenrecorder
+    state: latest
+
+- name: Install Blender (3D creation suite)
+  apt:
+    pkg: blender
+    state: present

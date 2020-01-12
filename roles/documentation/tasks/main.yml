@@ -1,0 +1,4 @@
+- name: Install Zeal (offline documentation for APIs, libraries, languages, etc)
+  apt:
+    name: zeal
+    state: latest

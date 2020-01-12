@@ -1,4 +1,0 @@
----
-
-- name: Install Heroku CLI
-  command: snap install heroku --classic

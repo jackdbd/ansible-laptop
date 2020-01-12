@@ -1,5 +1,3 @@
----
-
 - name: Print out the hostname of target
   command: hostname
 
@@ -23,13 +21,12 @@
     - jq
     - less
     - libssl-dev
-    - mc
     - silversearcher-ag
     - tldr
     - tree
     - vlc
 
-- name: Add flatpak repo from PPA (required for gimp)
+- name: Add PPA required for Flatpak
   apt_repository:
     repo: ppa:alexlarsson/flatpak
     state: present

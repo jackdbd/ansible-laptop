@@ -1,13 +1,31 @@
----
+- name: Install Visual Studio Code (classic confinement)
+  snap:
+    name: code
+    classic: yes
 
-- name: Install Visual Studio Code
-  command: snap install vscode --classic
-
-- name: Install PyCharm Community
-  command: snap install pycharm-community --classic
+- name: Install PyCharm Community (classic confinement, latest/edge)
+  snap:
+    name: pycharm-community
+    classic: yes
+    channel: latest/edge
 
 - name: Install Postman
-  command: snap install postman
+  snap:
+    name: postman
+    channel: latest/stable
 
-- name: Install Insomnia
-  command: snap install insomnia
+- name: Install Byobu (shell multiplexer)
+  apt:
+    pkg: byobu
+    state: latest
+
+- name: Install Virtualbox (virtualization tool)
+  apt:
+    pkg: virtualbox
+    state: latest
+
+- name: Install Heroku CLI
+  snap:
+    name: heroku
+    classic: yes
+    channel: latest/stable

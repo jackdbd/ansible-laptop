@@ -9,10 +9,15 @@
     classic: yes
     channel: latest/edge
 
-- name: Install Postman
+- name: Install Postman (REST API client)
   snap:
     name: postman
-    channel: latest/stable
+    channel: latest
+
+- name: Install Insomnia (GraphQL API client)
+  snap:
+    name: insomnia
+    channel: latest
 
 - name: Install Byobu (shell multiplexer)
   apt:

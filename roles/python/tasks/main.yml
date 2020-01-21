@@ -29,6 +29,11 @@
     dest: ./Miniconda3-latest-Linux-x86_64.sh
   when: not miniconda_dir_check.stat.exists
 
+- name: Install Jupyter notebook
+  snap:
+    name: jupyter
+    channel: latest
+
 - debug: msg="Run Miniconda3-latest-Linux-x86_64.sh to install Miniconda"
 
 - debug: msg="Run `pip completion --bash >> ~/.bashrc` to have autocompletion with pip"

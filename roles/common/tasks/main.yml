@@ -36,6 +36,21 @@
     pkg: flatpak
     state: latest
 
+- name: Add PPA required for Alacritty
+  apt_repository:
+    repo: ppa:mmstick76/alacritty
+    state: present
+
+- name: Install Alacritty (Terminal Emulator)
+  apt:
+    pkg: alacritty
+    state: latest
+
+- name: Install Vifm
+  apt:
+    pkg: vifm
+    state: latest
+
 - name: Upgrade installed packages
   apt:
     upgrade: yes
@@ -50,4 +65,3 @@
 
 - debug: msg="TODO - Install bat (https://github.com/sharkdp/bat)"
 - debug: msg="TODO - Install fzf (https://github.com/junegunn/fzf)"
-- debug: msg="TODO - Add bash hook for direnv (https://direnv.net)"

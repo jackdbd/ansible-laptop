@@ -3,13 +3,7 @@
     name: code
     classic: yes
 
-- name: Install PyCharm Community (classic confinement, latest/edge)
-  snap:
-    name: pycharm-community
-    classic: yes
-    channel: latest/edge
-
-- name: Install Postman (REST API client)
+- name: Install Postman
   snap:
     name: postman
     channel: latest
@@ -34,3 +28,8 @@
     name: heroku
     classic: yes
     channel: latest/stable
+
+- name: Install GNU Stow
+  apt:
+    pkg: stow
+    state: latest

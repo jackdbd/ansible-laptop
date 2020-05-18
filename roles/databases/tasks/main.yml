@@ -16,5 +16,3 @@
     packages:
     - pgadmin3
     - sqlitebrowser
-
-- debug: msg="TODO - Neo4J (requires Java 8)"

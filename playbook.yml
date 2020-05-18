@@ -4,7 +4,6 @@
   vars:
     home_dir: "{{ lookup('env', 'HOME') }}"
   roles:
-    - { role: aoc_monitor, become: yes }
     - { role: common, become: yes }
     - { role: communication, become: yes }
     - { role: databases, become: yes }

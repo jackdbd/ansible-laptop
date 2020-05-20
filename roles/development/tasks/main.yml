@@ -1,35 +1,69 @@
-- name: Install Visual Studio Code (classic confinement)
+- name: Install VS Codium (classic confinement)
+  tags: editor
   snap:
-    name: code
+    name: codium
     classic: yes
 
 - name: Install Postman
+  tags: api
   snap:
     name: postman
     channel: latest
 
 - name: Install Insomnia (GraphQL API client)
+  tags: api
   snap:
     name: insomnia
     channel: latest
 
+- name: Add PPA required for Alacritty
+  tags: terminal
+  apt_repository:
+    repo: ppa:mmstick76/alacritty
+    state: present
+
+- name: Install Alacritty (Terminal Emulator)
+  tags: terminal
+  apt:
+    pkg: alacritty
+    state: latest
+
 - name: Install Byobu (shell multiplexer)
+  tags: terminal
   apt:
     pkg: byobu
     state: latest
 
 - name: Install Virtualbox (virtualization tool)
+  tags: virtualization
   apt:
     pkg: virtualbox
     state: latest
 
 - name: Install Heroku CLI
+  tags:
+    - deployment
+    - ci
+    - cd
   snap:
     name: heroku
     classic: yes
     channel: latest/stable
 
 - name: Install GNU Stow
+  tags: dotfiles
   apt:
     pkg: stow
     state: latest
+
+- name: Install Neovim
+  tags: editor
+  apt:
+    pkg: neovim
+    state: latest
+
+- name: Download Leiningen (project automation/configuration for Clojure/ClojureScript)
+  tags: cli
+  get_url:
+    url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+    dest: "{{ home_dir }}/bin/lein"

@@ -1,4 +1,4 @@
 nvm:
   user: "{{ ansible_user_id }}"
-  version: v0.35.2
-  node_version: v12.14.1
+  version: v0.35.3
+  node_version: v12.16.3

@@ -6,15 +6,11 @@
     state: latest
     update_cache: yes
 
-- name: Install virtualenv
-  apt:
-    pkg: virtualenv
-    state: latest
+- name: Install pyenv (Python version manager)
+  command: "curl https://pyenv.run | bash"
 
-- name: Install virtualenvwrapper
-  apt:
-    pkg: virtualenvwrapper
-    state: latest
+- name: Install pipx
+  command: "python3 -m pip install --user pipx"
 
 - name: Install pipenv
   command: "pip3 install --user pipenv"
@@ -35,7 +31,4 @@
     channel: latest
 
 - debug: msg="Run Miniconda3-latest-Linux-x86_64.sh to install Miniconda"
-
-- debug: msg="Run `pip completion --bash >> ~/.bashrc` to have autocompletion with pip"
-
-- debug: msg="Configure virtualenvwrapper if you want, or just use pipenv"
+- debug: msg="TODO - Install poetry"

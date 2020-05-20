@@ -5,15 +5,16 @@
     home_dir: "{{ lookup('env', 'HOME') }}"
   roles:
     - { role: common, become: yes }
-    - { role: communication, become: yes }
-    - { role: databases, become: yes }
-    - { role: development, become: yes }
-    - { role: documentation, become: yes }
-    - { role: geerlingguy.docker, become: yes }
-    - { role: graphics, become: yes }
-    - { role: java, become: yes }
-    - { role: nodejs, become: yes }
-    - { role: python, become: yes }
+    - { role: communication, become: yes, tags: [ 'chat', 'im' ] }
+    - { role: databases, become: yes, tags: [ 'db', 'dev' ] }
+    - { role: development, become: yes, tags: [ 'dev' ] }
+    - { role: documentation, become: yes, tags: [ 'docs' ] }
+    - { role: fonts, become: yes, tags: [ 'fonts' ] }
+    - { role: geerlingguy.docker, become: yes, tags: [ 'containers', 'dev' ] }
+    - { role: graphics, become: yes, tags: [ 'graphics' ] }
+    - { role: java, become: yes, tags: [ 'dev', 'java' ] }
+    - { role: multimedia, become: yes, tags: [ 'audio', 'video' ] }
+    - { role: nodejs, become: yes, tags: [ 'dev', 'js' ] }
+    - { role: python, become: yes, tags: [ 'dev', 'python' ] }
   tasks:
     - debug: msg="You are the user {{ lookup('env','USER') }}"
-    - debug: msg="Your home is {{ home_dir }}"

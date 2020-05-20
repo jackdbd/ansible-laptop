@@ -6,16 +6,19 @@ Configuration for my Laptop (I use Xubuntu).
 
 First of all, you will need Ansible 2.8+ (because it can manage [snaps](https://docs.ansible.com/ansible/latest/modules/snap_module.html))
 
-Here are the instructions from the [official Ansible documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu).
+The easiest way to install ansible is with [pipx](https://github.com/pipxproject/pipx).
 
 ```sh
-sudo apt update
-sudo apt install software-properties-common
-sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible --yes
+pipx install ansible
 ```
 
-The Ansible playbook `playbook.yml` relies on some roles which must be installed from [Ansible Galaxy](https://galaxy.ansible.com/home). These roles can be automatically downloaded and installed with:
+The Ansible playbook `playbook.yml` contains serval tasks (i.e. the Ansible unit of action) grouped by [roles](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) and identified by [tags](https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html). You can see the list tasks with this command:
+
+```sh
+ansible-playbook playbook.yml -K --list-tasks
+```
+
+The playbook relies on some roles which must be installed from [Ansible Galaxy](https://galaxy.ansible.com/home). These roles can be automatically downloaded and installed with:
 
 ```shell
 ansible-galaxy install -r requirements.yml
@@ -23,13 +26,26 @@ ansible-galaxy install -r requirements.yml
 
 Install all the things (you will need to type your sudo password once).
 
-```shell
-ansible-playbook -K playbook.yml
+```sh
+ansible-playbook playbook.yml -K --tags "docs,fonts"
 ```
 
-You can also check that the playbook does not have any syntactic errors.
+OR install only the tasks you want:
 
-```shell
+```sh
+ansible-playbook playbook.yml -K --tags "docs,fonts" --list-tasks
+ansible-playbook playbook.yml -K --tags "docs,fonts"
+```
+
+If some tasks fail, try re-running the playbook while skipping them:
+
+```sh
+ansible-playbook playbook.yml -K --skip-tags "js,python"
+```
+
+You can also check that the playbook does not have any syntactic errors:
+
+```sh
 ansible-playbook playbook.yml --syntax-check
 ```
 

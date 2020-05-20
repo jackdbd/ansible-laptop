@@ -5,6 +5,8 @@
   vars:
     packages:
     - git
+    - gitg
     - gitk
     - git-cola
+    - kdiff3
     - meld

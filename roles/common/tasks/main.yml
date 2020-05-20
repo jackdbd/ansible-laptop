@@ -1,67 +1,110 @@
 - name: Print out the hostname of target
   command: hostname
 
-- name: Ensure that Aptitude repositories are up to date
-  apt:
-    update_cache: yes
-
 - name: Install a list of packages to their latest version
+  tags: cli
   apt:
     name: "{{ packages }}"
     state: latest
   vars:
     packages:
-    - chromium-browser
+    - bat
     - curl
     - direnv
     - gparted
-    - graphviz
     - grep
     - htop
     - jq
     - less
-    - libssl-dev
+    - meld
     - silversearcher-ag
     - tldr
     - tree
-    - vlc
+
+- name: Install Open SSL
+  tags: security
+  apt:
+    pkg: libssl-dev
+    state: latest
+
+- name: Install Chromium
+  tags: browser
+  apt:
+    pkg: chromium-browser
+    state: latest
+
+- name: Install Brave
+  tags: browser
+  apt:
+    pkg: brave-browser
+    state: latest
+
+- name: Add PPA required for Firefox Nightly
+  tags: browser
+  apt_repository:
+    repo: ppa:ubuntu-mozilla-daily/ppa
+    state: present
+
+- name: Install Firefox Nightly
+  tags: browser
+  apt:
+    pkg: firefox-trunk
+    state: latest
+
+- name: Install ncdu (NCurses Disk Usage, replacement for du)
+  tags: cli
+  snap:
+    name: ncdu
 
 - name: Add PPA required for Flatpak
+  tags: package-manager
   apt_repository:
     repo: ppa:alexlarsson/flatpak
     state: present
 
 - name: Install Flatpak
+  tags: package-manager
   apt:
     pkg: flatpak
     state: latest
 
-- name: Add PPA required for Alacritty
-  apt_repository:
-    repo: ppa:mmstick76/alacritty
-    state: present
-
-- name: Install Alacritty (Terminal Emulator)
-  apt:
-    pkg: alacritty
-    state: latest
-
-- name: Install Vifm
+- name: Install Vifm (File manager)
+  tags: file-manager
   apt:
     pkg: vifm
     state: latest
 
 - name: Upgrade installed packages
+  tags: package-manager
   apt:
     upgrade: yes
 
 - name: Remove useless packages from the cache
+  tags: package-manager
   apt:
     autoclean: yes
 
 - name: Remove dependencies that are no longer required
+  tags: package-manager
   apt:
     autoremove: yes
 
-- debug: msg="TODO - Install bat (https://github.com/sharkdp/bat)"
-- debug: msg="TODO - Install fzf (https://github.com/junegunn/fzf)"
+- name: Download z (jump around the most frequently used directories)
+  tags: cli
+  get_url:
+    url: https://raw.githubusercontent.com/rupa/z/master/z.sh
+    dest: "{{ home_dir }}/bin/z.sh"
+
+- name: Download git-prompt.sh
+  tags: git
+  get_url:
+    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+    dest: "{{ home_dir }}/bin/git-prompt.sh"
+
+- name: Download git-completion.bash
+  tags: git
+  get_url:
+    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+    dest: "{{ home_dir }}/bin/git-completion.bash"
+
+- debug: msg="fzf is available as apt package in Ubuntu 19.10"

@@ -1,0 +1,17 @@
+- name: Install FFmpeg
+  snap:
+    name: ffmpeg
+
+- name: Install VLC
+  snap:
+    name: vlc
+
+- name: Add PPA required for OBS Studio
+  apt_repository:
+    repo: ppa:obsproject/obs-studio
+    state: present
+  
+- name: Install OBS Studio (live streaming and screen recording)
+  apt:
+    pkg: obs-studio
+    state: latest

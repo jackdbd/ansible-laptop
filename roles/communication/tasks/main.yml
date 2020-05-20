@@ -6,4 +6,7 @@
 - name: Install Telegram
   snap:
     name: telegram-desktop
-    classic: yes
+
+- name: Install Zulip
+  snap:
+    name: zulip

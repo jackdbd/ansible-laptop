@@ -1,3 +1,8 @@
+- name: Install Graphviz
+  apt:
+    pkg: graphviz
+    state: latest
+
 - name: Install Feh (Fast X11 image viewer)
   apt:
     pkg: feh
@@ -47,16 +52,6 @@
 - name: Install Shutter (screenshot tool)
   apt:
     pkg: shutter
-    state: latest
-
-- name: Add PPA required for Simple Screen Recorder
-  apt_repository:
-    repo: ppa:maarten-baert/simplescreenrecorder
-    state: present
-
-- name: Install Simple Screen Recorder
-  apt:
-    pkg: simplescreenrecorder
     state: latest
 
 - name: Install Blender (3D creation suite)

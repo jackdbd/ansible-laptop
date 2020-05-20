@@ -16,7 +16,6 @@
     - htop
     - jq
     - less
-    - meld
     - silversearcher-ag
     - tldr
     - tree
@@ -94,17 +93,5 @@
   get_url:
     url: https://raw.githubusercontent.com/rupa/z/master/z.sh
     dest: "{{ home_dir }}/bin/z.sh"
-
-- name: Download git-prompt.sh
-  tags: git
-  get_url:
-    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-    dest: "{{ home_dir }}/bin/git-prompt.sh"
-
-- name: Download git-completion.bash
-  tags: git
-  get_url:
-    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-    dest: "{{ home_dir }}/bin/git-completion.bash"
 
 - debug: msg="fzf is available as apt package in Ubuntu 19.10"

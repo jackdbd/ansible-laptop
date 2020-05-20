@@ -11,6 +11,7 @@
     - { role: documentation, become: yes, tags: [ 'docs' ] }
     - { role: fonts, become: yes, tags: [ 'fonts' ] }
     - { role: geerlingguy.docker, become: yes, tags: [ 'containers', 'dev' ] }
+    - { role: git, become: yes, tags: [ 'git' ] }
     - { role: graphics, become: yes, tags: [ 'graphics' ] }
     - { role: java, become: yes, tags: [ 'dev', 'java' ] }
     - { role: multimedia, become: yes, tags: [ 'audio', 'video' ] }

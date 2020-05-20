@@ -10,3 +10,13 @@
     - git-cola
     - kdiff3
     - meld
+
+- name: Download git-prompt.sh
+  get_url:
+    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+    dest: "{{ home_dir }}/bin/git-prompt.sh"
+
+- name: Download git-completion.bash
+  get_url:
+    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+    dest: "{{ home_dir }}/bin/git-completion.bash"

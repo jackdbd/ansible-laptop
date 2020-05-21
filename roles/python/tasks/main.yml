@@ -6,29 +6,11 @@
     state: latest
     update_cache: yes
 
-- name: Install pyenv (Python version manager)
+- name: Install pyenv (Version management for Python)
   command: "curl https://pyenv.run | bash"
 
-- name: Install pipx
+- name: Install pipx (Install and Run Python Applications in Isolated Environments)
   command: "python3 -m pip install --user pipx"
 
-- name: Install pipenv
-  command: "pip3 install --user pipenv"
-
-- name: Check if miniconda dir is present in HOME
-  stat: path="{{ home_dir }}/miniconda3"
-  register: miniconda_dir_check
-
-- name: Download latest Miniconda for Linux 64 bit
-  get_url:
-    url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    dest: ./Miniconda3-latest-Linux-x86_64.sh
-  when: not miniconda_dir_check.stat.exists
-
-- name: Install Jupyter notebook
-  snap:
-    name: jupyter
-    channel: latest
-
-- debug: msg="Run Miniconda3-latest-Linux-x86_64.sh to install Miniconda"
-- debug: msg="TODO - Install poetry"
+- name: Install poetry (Dependency Management for Python)
+  command: "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python"

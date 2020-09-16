@@ -67,3 +67,4 @@
   get_url:
     url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     dest: "{{ home_dir }}/bin/lein"
+    mode: '777' # https://chmodcommand.com/chmod-777/

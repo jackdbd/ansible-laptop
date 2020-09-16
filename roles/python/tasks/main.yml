@@ -5,12 +5,3 @@
         - python3-dev
     state: latest
     update_cache: yes
-
-- name: Install pyenv (Version management for Python)
-  command: "curl https://pyenv.run | bash"
-
-- name: Install pipx (Install and Run Python Applications in Isolated Environments)
-  command: "python3 -m pip install --user pipx"
-
-- name: Install poetry (Dependency Management for Python)
-  command: "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python"

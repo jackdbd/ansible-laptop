@@ -16,6 +16,7 @@
     - { role: java, become: yes, tags: [ 'dev', 'java' ] }
     - { role: multimedia, become: yes, tags: [ 'audio', 'video' ] }
     - { role: nodejs, become: yes, tags: [ 'dev', 'js' ] }
+    - { role: productivity, become: yes, tags: [ 'productivity' ] }
     - { role: python, become: yes, tags: [ 'dev', 'python' ] }
   tasks:
     - debug: msg="You are the user {{ lookup('env','USER') }}"

@@ -1,0 +1,18 @@
+- name: Check if tmetric was downloaded
+  stat: path="{{ home_dir }}/tmetric_desktop_amd64.deb"
+  register: tmetric_check
+
+- name: Download TMetric (time tracking)
+  get_url:
+    url: https://static.tmetric.com/desktop/download/linux/deb/amd64
+    dest: "{{ home_dir }}/tmetric_desktop_amd64.deb"
+  when: not tmetric_check.stat.exists
+
+- name: Install TMetric
+  command: "dpkg -i {{ home_dir }}/tmetric_desktop_amd64.deb"
+  when: tmetric_check.stat.exists
+
+- name: Remove tmetric_desktop_amd64.deb
+  file:
+    path: "{{ home_dir }}/tmetric_desktop_amd64.deb"
+    state: absent

@@ -11,7 +11,6 @@
     - bat
     - curl
     - direnv
-    - gparted
     - grep
     - htop
     - jq
@@ -30,12 +29,6 @@
   tags: browser
   apt:
     pkg: chromium-browser
-    state: latest
-
-- name: Install Brave
-  tags: browser
-  apt:
-    pkg: brave-browser
     state: latest
 
 - name: Add PPA required for Firefox Nightly

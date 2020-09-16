@@ -46,3 +46,8 @@
     pkg: nautilus-dropbox
     state: latest
   
+- name: Install Liferea (RSS reader)
+  tags: productivity
+  apt:
+    pkg: liferea
+    state: latest

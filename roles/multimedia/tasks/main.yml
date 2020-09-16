@@ -15,3 +15,9 @@
   apt:
     pkg: obs-studio
     state: latest
+
+- name: Install youtube-dl
+  apt:
+    pkg: youtube-dl
+    state: latest
+  

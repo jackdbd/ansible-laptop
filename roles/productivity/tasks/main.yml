@@ -17,7 +17,6 @@
     path: "{{ home_dir }}/tmetric_desktop_amd64.deb"
     state: absent
 
-
 - name: Check if dropbox.tar.gz was downloaded
   stat: path="{{ home_dir }}/dropbox.tar.gz"
   register: dropbox_check
@@ -50,4 +49,10 @@
   tags: productivity
   apt:
     pkg: liferea
+    state: latest
+  
+- name: Install Stacer
+  tags: productivity
+  apt:
+    pkg: stacer
     state: latest

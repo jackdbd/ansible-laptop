@@ -17,6 +17,7 @@
     - less
     - silversearcher-ag
     - tldr
+    - trash-cli
     - tree
 
 - name: Install Open SSL
